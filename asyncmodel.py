@@ -11,6 +11,10 @@ class AsyncModel(object):
         self.__async_attributes__ = {}
 
     def loader_for_attribute(self, attribute):
+        """
+            Subclasses should replace this function to implement
+            actual object loading; this just returns the ID passed in.
+        """
         return lambda x: x
 
     def map_attributes(self, attrs):
