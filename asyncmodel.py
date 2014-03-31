@@ -20,11 +20,11 @@ class AsyncModel(object):
     def map_attributes(self, attrs):
         for key in attrs:
             value = attrs[key]
-            loader = loader_for_attribute(key)
-            try:
-                #Iterable
+            loader = self.loader_for_attribute(key)
+            if hasattr(value, "__iter__"):
+                #Iterable (non-string) value
                 mapped = AsyncList(value, loader)
-            except TypeError:
+            else:
                 #Plain value
                 mapped = AsyncItem(value, loader)
 
