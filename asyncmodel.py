@@ -12,8 +12,10 @@ class AsyncModel(object):
 
     def loader_for_attribute(self, attribute):
         """
-            Subclasses should replace this function to implement
-            actual object loading; this just returns the ID passed in.
+            If a subclass has attributes that are other objects,
+	    use this to load the actual information for that object.
+	    Otherwise, just return something akin to the below, which
+	    spits out the value passed in.
         """
         return lambda x: x
 
