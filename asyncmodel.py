@@ -5,9 +5,9 @@ class AsyncModel(object):
     """
         Map to a remote object, load attributes as needed
     """
-
-    def __init__(self, id):
-        self.id = id
+    def __init__(self, info):
+        self.id = info["id"]
+        self.name = info["name"]
         self.__async_attributes__ = {}
 
     def loader_for_attribute(self, attribute):
